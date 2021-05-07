@@ -40,7 +40,7 @@ services:
     environment:
       - DEBIAN_FRONTEND=noninteractive
     build:
-      context: ../../
+      context: ../
       dockerfile: docker/Dockerfile
     container_name: dev_env
     stdin_open: true
@@ -56,9 +56,11 @@ services:
       - 8081:8081
     volumes:
       - dev_home:/home/dev/
-      - dev_pg:/var/lib/postgresql/12/main/
+      - dev_pg:/var/lib/postgresql/10/main/
       - $HOME/Desktop:/home/dev/Desktop
       - $HOME/dev-env:/home/dev/dev-env
+      - $HOME/development:/home/dev/development
+      - $HOME/lfz:/home/dev/lfz
     command: ["tail", "-f", "/dev/null"]
 
 volumes:
@@ -78,7 +80,7 @@ sleep 2
 docker-compose -f $compose_file_path build 2>&1 | tee $desktop_path/dev-env-install.log
 
 if [ ${PIPESTATUS[0]} -eq 0 ]; then
-  echo -e '\nDevelopment Environment setup successful.'
+  echo -e '\nDevelopment environment setup successful.'
   exit 0
 fi
 

@@ -57,9 +57,11 @@ services:
       - 8081:8081
     volumes:
       - dev_home:/home/dev/
-      - dev_pg:/var/lib/postgresql/12/main/
+      - dev_pg:/var/lib/postgresql/10/main/
       - $HOME/Desktop:/home/dev/Desktop
       - $HOME/dev-env:/home/dev/dev-env
+      - $HOME/development:/home/dev/development
+      - $HOME/lfz:/home/dev/lfz
     command: ["tail", "-f", "/dev/null"]
 
 volumes:

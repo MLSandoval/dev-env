@@ -4,9 +4,9 @@ function install-postgres() {
 
   cat << EOF >> /home/dev/.bashrc
 
-export PGPASSWORD=buble
+export PGPASSWORD=dev-env
 export PGUSER=dev
-export PGDAATABASE=dev
+export PGDATABASE=dev
 
 alias pgweb='pgweb --bind=0.0.0.0'
 
